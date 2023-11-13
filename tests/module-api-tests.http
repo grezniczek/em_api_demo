@@ -62,3 +62,42 @@ content=externalModule
 &csvDelim={{delim}}
 &action=remove-item
 &item-id=6f1f50e8-8f3e-4d6c-a005-3c1c993bc519
+
+// No-auth
+
+### Test: List items (without authenticating)
+POST https://dev-redcap/api/ HTTP/1.1
+Content-Type: application/x-www-form-urlencoded
+
+content=externalModule
+&prefix={{prefix}}
+&format={{format}}
+&returnFormat={{returnFormat}}
+&csvDelim={{delim}}
+&action=list-items
+
+
+### Test: Get an item (without authenticating)
+POST https://dev-redcap/api/ HTTP/1.1
+Content-Type: application/x-www-form-urlencoded
+
+content=externalModule
+&prefix={{prefix}}
+&format={{format}}
+&returnFormat={{returnFormat}}
+&csvDelim={{delim}}
+&action=get-item
+&item-id=8cd74459-ee0f-4d12-9f76-a7b852c357cf
+
+### Test: Remove an item (without authenticating - not possible)
+POST https://dev-redcap/api/ HTTP/1.1
+Content-Type: application/x-www-form-urlencoded
+
+content=externalModule
+&prefix={{prefix}}
+&format={{format}}
+&returnFormat={{returnFormat}}
+&csvDelim={{delim}}
+&action=remove-item
+&item-id=8cd74459-ee0f-4d12-9f76-a7b852c357cf
+

@@ -19,7 +19,8 @@
         "remove-item"
     ],
     "no-auth-api-actions": [
-        "get-item"
+        "get-item",
+        "list-items"
     ],
     "api-action-descriptions": [
         {

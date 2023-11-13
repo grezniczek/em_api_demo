@@ -10,7 +10,7 @@ This demo provides a simple API for managing a list. List items can be
 - listed (`list-items`)
 - removed (`remove-item`, requiring _item-id_)
 
-Items are stored in the module logs.
+Items are stored in the module logs. This demo only supports `json` as return format.
 
 ## CURL requests
 
