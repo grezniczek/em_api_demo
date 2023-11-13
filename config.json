@@ -1,0 +1,42 @@
+{
+    "name": "Module API Demo",
+    "namespace": "DE\\RUB\\ApiDemoExternalModule",
+    "description": "An example module to demonstrate module API services through the 'redcap_module_api' hook.",
+    "documentation": "README.md",
+    "authors": [
+        {
+            "name": "Günther Rezniczek",
+            "email": "guenther.rezniczek@rub.de",
+            "institution": "Ruhr-Universität Bochum"
+        }
+    ],
+    "include-authors-in-api-info": true,
+    "framework-version": 12,
+    "auth-api-actions": [
+        "get-item",
+        "list-items",
+        "add-item",
+        "remove-item"
+    ],
+    "no-auth-api-actions": [
+        "get-item"
+    ],
+    "api-action-descriptions": [
+        {
+            "action": "get-item",
+            "description": "Gets the item specified by <code>item-id</code>."
+        },
+        {
+            "action": "list-items",
+            "description": "Returns a list of items with <i>item-id</i> and <i>item-name</i>."
+        },
+        {
+            "action": "add-item",
+            "description": "Adds an item to the list. Specify the item's name in the <code>item-name</code> parameter. The id of the new item will be returned as <i>'item-id'</i>."
+        },
+        {
+            "action": "remove-item",
+            "description": "Removes an item from the list. Specifiy the item's id in the <code>item-id</code> parameter."
+        }
+    ]
+}
