@@ -105,3 +105,47 @@ curl --request POST \
   --data returnFormat=json \
   --data action=list-items
 ```
+
+## Unauthenticated Access
+
+### 1. List the items
+
+```
+curl --request POST \
+  --url https://dev-redcap/api/ \
+  --header 'content-type: application/x-www-form-urlencoded' \
+  --header 'user-agent: vscode-restclient' \
+  --data content=externalModule \
+  --data prefix=em_api_demo \
+  --data returnFormat=json \
+  --data action=list-items
+```
+
+### 2. Get an item
+
+```
+curl --request POST \
+  --url https://dev-redcap/api/ \
+  --header 'content-type: application/x-www-form-urlencoded' \
+  --header 'user-agent: vscode-restclient' \
+  --data content=externalModule \
+  --data prefix=em_api_demo \
+  --data returnFormat=json \
+  --data action=get-item \
+  --data item-id=<INSERT-ITEM-ID>
+```
+
+### 3. Remove an item - this will fail!
+
+```
+curl --request POST \
+  --url https://dev-redcap/api/ \
+  --header 'content-type: application/x-www-form-urlencoded' \
+  --header 'user-agent: vscode-restclient' \
+  --data content=externalModule \
+  --data prefix=em_api_demo \
+  --data returnFormat=json \
+  --data action=remove-item \
+  --data item-id=<INSERT-ITEM-ID>
+```
+
