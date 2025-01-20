@@ -65,7 +65,7 @@ class ApiDemoExternalModule extends AbstractExternalModule {
             return $this->framework->apiErrorResponse("No item with id '$id'.", 404);
         }
         else {
-            $this->framework->removeLogs("message = ? AND id = ?", [
+            $this->framework->removeLogs("message = ? AND id = ? AND ISNULL(project_id)", [
                 self::ITEM_STORE, $id
             ]);
         }
