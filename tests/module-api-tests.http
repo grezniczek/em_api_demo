@@ -36,7 +36,7 @@ content=externalModule
 &returnFormat={{returnFormat}}
 &csvDelim={{delim}}
 &action=get-item
-&item-id=6f1f50e8-8f3e-4d6c-a005-3c1c993bc519
+&item-id=f3ad3527-0446-49b5-9acd-b5a25d19cf7a
 
 ### Test: List items
 POST https://dev-redcap/api/ HTTP/1.1
@@ -61,7 +61,7 @@ content=externalModule
 &returnFormat={{returnFormat}}
 &csvDelim={{delim}}
 &action=remove-item
-&item-id=6f1f50e8-8f3e-4d6c-a005-3c1c993bc519
+&item-id=27b931c6-033f-477b-ade6-e1c89cee8061
 
 // No-auth
 
@@ -87,7 +87,7 @@ content=externalModule
 &returnFormat={{returnFormat}}
 &csvDelim={{delim}}
 &action=get-item
-&item-id=8cd74459-ee0f-4d12-9f76-a7b852c357cf
+&item-id=c690b708-9643-428f-a61d-289d2ba36eb2
 
 ### Test: Remove an item (without authenticating - not possible)
 POST https://dev-redcap/api/ HTTP/1.1
@@ -99,5 +99,30 @@ content=externalModule
 &returnFormat={{returnFormat}}
 &csvDelim={{delim}}
 &action=remove-item
-&item-id=8cd74459-ee0f-4d12-9f76-a7b852c357cf
+&item-id=3fb8620f-6508-403b-a384-08e638ff1c70
 
+### Test: Add an item (no-auth)
+POST https://dev-redcap/api/ HTTP/1.1
+Content-Type: application/x-www-form-urlencoded
+
+content=externalModule
+&prefix={{prefix}}
+&format={{format}}
+&returnFormat={{returnFormat}}
+&csvDelim={{delim}}
+&action=add-item
+&item-name=Item without project scope!
+
+
+
+### Special action
+POST https://dev-redcap/api/ HTTP/1.1
+Content-Type: application/x-www-form-urlencoded
+
+content=externalModule
+&token={{token}}
+&prefix={{prefix}}
+&format={{format}}
+&returnFormat={{returnFormat}}
+&csvDelim={{delim}}
+&action=__info

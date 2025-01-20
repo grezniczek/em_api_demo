@@ -23,6 +23,7 @@ class ApiDemoExternalModule extends AbstractExternalModule {
         if ($name == "") return $this->framework->apiErrorResponse("Must specify 'item-name'!", 400);
         $id = \Crypto::getGuid();
         $this->framework->log(self::ITEM_STORE, [
+            "project_id" => null,
             "id" => $id,
             "name" => $name
         ]);
@@ -34,7 +35,7 @@ class ApiDemoExternalModule extends AbstractExternalModule {
     function get_item($payload) {
         $id = "". ($payload["item-id"] ?? "");
         if ($id == "") return $this->framework->apiErrorResponse("Must specify 'item-id'!", 400);
-        $result = $this->framework->queryLogs("SELECT name WHERE message = ? AND id = ?", [self::ITEM_STORE, $id]);
+        $result = $this->framework->queryLogs("SELECT name WHERE message = ? AND id = ? AND ISNULL(project_id)", [self::ITEM_STORE, $id]);
         while ($row = $result->fetch_assoc()) {
             return $this->framework->apiJsonResponse([
                 "item-id" => $id,
@@ -46,7 +47,7 @@ class ApiDemoExternalModule extends AbstractExternalModule {
 
     function list_items() {
         $list = [];
-        $result = $this->framework->queryLogs("SELECT id, name WHERE message = ?", [self::ITEM_STORE]);
+        $result = $this->framework->queryLogs("SELECT id, name WHERE message = ? AND ISNULL(project_id)", [self::ITEM_STORE]);
         while ($row = $result->fetch_assoc()) {
             $list[] = [
                 "item-id" => $row["id"],

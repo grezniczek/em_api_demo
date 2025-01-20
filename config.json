@@ -11,7 +11,7 @@
         }
     ],
     "include-authors-in-api-info": true,
-    "framework-version": 12,
+    "framework-version": 15,
     "api-actions": {
 		"get-item": {
 			"description": "Gets the item specified by <code>item-id</code>.",
